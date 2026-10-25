@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GenAI Chatbot</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="chat-container">
+
+        <!-- Header -->
+        <header class="chat-header">
+
+            <div class="bot-icon">
+                ✨
+            </div>
+
+            <div>
+                <h1>GenAI Assistant</h1>
+                <p>Powered by Gemini Foundation Model</p>
+            </div>
+
+            <div class="status">
+                <span></span>
+                Online
+            </div>
+
+        </header>
+
+
+        <!-- Chat Area -->
+        <main id="chatBox" class="chat-box">
+
+            <div class="message bot-message">
+
+                <div class="avatar">
+                    ✨
+                </div>
+
+                <div class="message-content">
+
+                    <p>
+                        Hello! 👋
+                    </p>
+
+                    <p>
+                        I'm your Generative AI Assistant.
+                        Ask me anything about Python,
+                        AI, Machine Learning, TensorFlow,
+                        or Generative AI.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <!-- Typing Indicator -->
+        <div id="typing" class="typing hidden">
+            Gemini is thinking...
+        </div>
+
+
+        <!-- Input Area -->
+        <footer class="chat-input-area">
+
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Ask me anything..."
+                autocomplete="off"
+            >
+
+            <button id="sendButton">
+                Send
+            </button>
+
+        </footer>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

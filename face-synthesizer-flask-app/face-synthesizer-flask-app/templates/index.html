@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>DCGAN Face Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <h1>DCGAN Face Generator</h1>
+
+        <p class="description">
+            Generate a new synthetic human face
+            using a trained Deep Convolutional
+            Generative Adversarial Network.
+        </p>
+
+
+        <button id="generateBtn">
+
+            Generate Face
+
+        </button>
+
+
+        <div id="loading">
+
+            Generating face...
+
+        </div>
+
+
+        <div class="result">
+
+            <img
+                id="generatedImage"
+                src=""
+                alt="Generated Face"
+            >
+
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}">
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>StyleGAN Face Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>
+            StyleGAN Face Generator
+        </h1>
+
+        <p>
+            High-Quality Human Face Generation using CelebA
+        </p>
+
+    </div>
+
+
+    <!-- MAIN AREA -->
+
+    <div class="main-content">
+
+
+        <!-- CONTROL PANEL -->
+
+        <div class="control-panel">
+
+            <h2>
+                Generation Controls
+            </h2>
+
+
+            <!-- GENERATION MODE -->
+
+            <label>
+                Generation Mode
+            </label>
+
+            <select id="generationMode">
+
+                <option value="normal">
+                    Normal Face
+                </option>
+
+                <option value="mix">
+                    Style Mixing
+                </option>
+
+                <option value="noise">
+                    Noise Variation
+                </option>
+
+            </select>
+
+
+            <!-- SKIN -->
+
+            <label>
+                Skin Tone
+            </label>
+
+            <select id="skinTone">
+
+                <option value="original">
+                    Original
+                </option>
+
+                <option value="light">
+                    Light
+                </option>
+
+                <option value="medium">
+                    Medium
+                </option>
+
+                <option value="dark">
+                    Dark
+                </option>
+
+            </select>
+
+
+            <!-- HAIR -->
+
+            <label>
+                Hair Color
+            </label>
+
+            <select id="hairColor">
+
+                <option value="original">
+                    Original
+                </option>
+
+                <option value="black">
+                    Black
+                </option>
+
+                <option value="brown">
+                    Brown
+                </option>
+
+                <option value="blonde">
+                    Blonde
+                </option>
+
+            </select>
+
+
+            <!-- GENERATE -->
+
+            <button
+                id="generateBtn">
+
+                Generate Face
+
+            </button>
+
+
+            <p
+                id="status">
+
+            </p>
+
+        </div>
+
+
+        <!-- IMAGE AREA -->
+
+        <div class="image-panel">
+
+            <h2>
+                Generated Face
+            </h2>
+
+            <div class="image-box">
+
+                <img
+                    id="generatedImage"
+                    src=""
+                    alt="Generated Face">
+
+                <span
+                    id="placeholder">
+
+                    Your generated face
+                    will appear here
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FEATURES -->
+
+    <div class="features">
+
+        <div class="feature-card">
+
+            <div class="icon">
+                🎨
+            </div>
+
+            <h3>
+                Skin Tone
+            </h3>
+
+            <p>
+                Choose from different
+                skin tone adjustments.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="icon">
+                💇
+            </div>
+
+            <h3>
+                Hair Color
+            </h3>
+
+            <p>
+                Adjust the generated
+                hair color.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="icon">
+                🔀
+            </div>
+
+            <h3>
+                Style Mixing
+            </h3>
+
+            <p>
+                Mix styles from
+                two latent identities.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="icon">
+                ✨
+            </div>
+
+            <h3>
+                Noise Variation
+            </h3>
+
+            <p>
+                Generate different
+                fine stochastic details.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- INFORMATION -->
+
+    <div class="info">
+
+        <h2>
+            How StyleGAN Works
+        </h2>
+
+        <div class="flow">
+
+            <span>
+                Random Z
+            </span>
+
+            <span>→</span>
+
+            <span>
+                Mapping Network
+            </span>
+
+            <span>→</span>
+
+            <span>
+                W Space
+            </span>
+
+            <span>→</span>
+
+            <span>
+                Style + Noise
+            </span>
+
+            <span>→</span>
+
+            <span>
+                Face
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="{{ url_for(
+    'static',
+    filename='script.js'
+) }}"></script>
+
+</body>
+
+</html>

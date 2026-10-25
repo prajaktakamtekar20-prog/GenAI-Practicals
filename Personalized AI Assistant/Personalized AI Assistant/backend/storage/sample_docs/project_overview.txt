@@ -1,0 +1,25 @@
+# Project Overview: Development of a Personalized AI Assistant
+
+Aim and Objectives:
+The primary aim of this project is to develop a personalized AI assistant using an open-source foundational language model (Qwen2.5), integrate a Retrieval-Augmented Generation (RAG) system to answer questions accurately from user-specific documents, and investigate the effect of parameter-efficient fine-tuning using LoRA or QLoRA on the model's response quality and domain alignment.
+
+Key Components and Architecture:
+1. Document Ingestion Pipeline:
+   - Supports multi-format text extraction: PDF via PyMuPDF (fitz) preserving page numbers, Microsoft Word (.docx) via python-docx, and plain text (.txt).
+   - Text is split into overlapping chunks (e.g. 500 words with 100-word overlap) maintaining document metadata and page numbers.
+   - Embeddings are generated using the Sentence Transformers model "sentence-transformers/all-MiniLM-L6-v2" producing 384-dimensional dense vectors.
+   - Vector indexing is managed by FAISS (IndexFlatIP) utilizing cosine similarity over normalized embeddings.
+   - The vector index and document metadata are persisted locally in the storage directory.
+
+2. Three Operating Modes:
+   - Base LLM Mode: Answers queries using only the open-source model's pre-trained parametric knowledge without document retrieval.
+   - RAG Mode: Dynamically queries the local FAISS index, retrieves top-k relevant chunks, isolates the untrusted context, and prompts the LLM to generate a strictly grounded answer with citations.
+   - Fine-Tuned Model Mode: Evaluates the model adapted with Low-Rank Adaptation (LoRA) on custom domain instruction pairs, either standalone or combined with RAG.
+
+3. RAG vs Fine-Tuning Distinction:
+   - RAG provides external non-parametric context at inference time. It excels at answering questions from rapidly changing documents without retraining.
+   - Fine-tuning alters internal model weights to adapt tone, format, domain syntax, or reasoning style, but is not a substitute for dynamic retrieval of new documents.
+
+4. Safety, Refusal, and Injection Defense:
+   - When the uploaded document context lacks sufficient evidence or does not support the user's question, the assistant must honestly state: "I cannot answer this based on the available documents."
+   - The system prompt instructs the assistant to isolate retrieved context as untrusted data and ignore any adversarial prompts or prompt injection attempts embedded within uploaded files.

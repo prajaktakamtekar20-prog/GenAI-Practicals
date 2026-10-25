@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+*.log
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Model weights, local vector storage, and test caches
+backend/storage/*
+!backend/storage/.gitkeep
+!backend/storage/sample_docs/
+backend/outputs/*
+!backend/outputs/.gitkeep
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
