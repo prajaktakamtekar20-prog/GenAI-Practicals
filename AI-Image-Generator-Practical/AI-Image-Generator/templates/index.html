@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Image Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <!-- Header -->
+
+        <div class="header">
+
+            <div class="logo">
+                ✨
+            </div>
+
+            <div>
+
+                <h1>AI Image Generator</h1>
+
+                <p>
+                    Generate images using Generative AI
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Generator Card -->
+
+        <div class="generator-card">
+
+            <h2>
+                Create an Image
+            </h2>
+
+            <p class="description">
+                Describe what you want to generate
+                using natural language.
+            </p>
+
+
+            <!-- Prompt -->
+
+            <form method="POST">
+
+                <label for="prompt">
+                    Enter your prompt
+                </label>
+
+                <textarea
+                    id="prompt"
+                    name="prompt"
+                    placeholder="Example: A beautiful futuristic city at sunset, cinematic lighting, highly detailed..."
+                    required>{{ request.form.get('prompt', '') }}</textarea>
+
+
+                <button type="submit">
+
+                    <span>✨</span>
+
+                    Generate Image
+
+                </button>
+
+            </form>
+
+
+            <!-- Error -->
+
+            {% if error %}
+
+            <div class="error">
+
+                {{ error }}
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- Generated Image -->
+
+            {% if image_path %}
+
+            <div class="result">
+
+                <h2>
+                    Generated Image
+                </h2>
+
+                <div class="image-container">
+
+                    <img
+                        src="{{ image_path }}"
+                        alt="Generated AI Image">
+
+                </div>
+
+                <a
+                    href="{{ image_path }}"
+                    download
+                    class="download-btn">
+
+                    Download Image
+
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- Model Information -->
+
+        <div class="model-info">
+
+            <div>
+
+                <strong>Model</strong>
+
+                <span>
+                    Stable Diffusion v1.5
+                </span>
+
+            </div>
+
+            <div>
+
+                <strong>Type</strong>
+
+                <span>
+                    Text-to-Image
+                </span>
+
+            </div>
+
+            <div>
+
+                <strong>Framework</strong>
+
+                <span>
+                    Hugging Face Diffusers
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

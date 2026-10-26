@@ -10,3 +10,36 @@ node_modules/
 *.zip
 
 *_log.txt
+
+# Python virtual environments
+**/venv/
+**/.venv/
+
+# Environment variables and secrets
+**/.env
+**/.env.*
+!**/.env.example
+
+# Nested Git repositories
+**/.git/
+
+# Generated output and caches
+**/generated_images/
+**/__pycache__/
+**/*.pyc
+
+# Duplicate AI Image Generator copy
+/AI-Image-Generator/
+
+# Training checkpoints and optimizer state
+**/checkpoint-*/
+**/optimizer.pt
+**/rng_state.pth
+**/scheduler.pt
+**/scaler.pt
+
+# Local generated output
+**/generated_images/
+
+# Duplicate MusicGen folder
+/MusicGen-Small-LoRA/musicgen-small-lora-genres/

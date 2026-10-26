@@ -1,0 +1,6 @@
+accelerate>=0.33.0
+diffusers>=0.30.0
+imageio-ffmpeg>=0.5.1
+streamlit>=1.37.0
+torch>=2.4.0
+transformers>=4.44.0

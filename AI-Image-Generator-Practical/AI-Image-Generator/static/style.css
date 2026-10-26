@@ -1,0 +1,360 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef7ff,
+            #f7f3ff
+        );
+
+    min-height: 100vh;
+
+    color: #1f2937;
+
+    padding: 40px 20px;
+
+}
+
+
+.main-container {
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+
+/* Header */
+
+.header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.logo {
+
+    width: 60px;
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: #6c5ce7;
+
+    color: white;
+
+    font-size: 30px;
+
+}
+
+
+.header h1 {
+
+    font-size: 32px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.header p {
+
+    color: #6b7280;
+
+}
+
+
+/* Generator Card */
+
+.generator-card {
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+
+}
+
+
+.generator-card h2 {
+
+    margin-bottom: 8px;
+
+}
+
+
+.description {
+
+    color: #6b7280;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* Label */
+
+label {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* Textarea */
+
+textarea {
+
+    width: 100%;
+
+    height: 140px;
+
+    resize: vertical;
+
+    padding: 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    margin-bottom: 20px;
+
+}
+
+
+textarea:focus {
+
+    border-color: #6c5ce7;
+
+}
+
+
+/* Button */
+
+button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #6c5ce7;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+button:hover {
+
+    background: #5848c2;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* Error */
+
+.error {
+
+    margin-top: 20px;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+}
+
+
+/* Result */
+
+.result {
+
+    margin-top: 35px;
+
+    text-align: center;
+
+}
+
+
+.result h2 {
+
+    margin-bottom: 20px;
+
+}
+
+
+.image-container {
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+.image-container img {
+
+    max-width: 100%;
+
+    width: 512px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+
+/* Download */
+
+.download-btn {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 12px 25px;
+
+    border-radius: 10px;
+
+    background: #111827;
+
+    color: white;
+
+    text-decoration: none;
+
+}
+
+
+.download-btn:hover {
+
+    background: #374151;
+
+}
+
+
+/* Model Info */
+
+.model-info {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+
+.model-info div {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.05);
+
+}
+
+
+.model-info strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+}
+
+
+.model-info span {
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+}
+
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .model-info {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .generator-card {
+
+        padding: 25px;
+
+    }
+
+    .header h1 {
+
+        font-size: 25px;
+
+    }
+
+}
